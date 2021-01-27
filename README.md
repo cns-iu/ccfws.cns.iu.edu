@@ -13,4 +13,3 @@ Common Coordinate Framework (CCF) Workshop Website
 <http://ccfws.cns.iu.edu/>
 
 2019 Workshop: <http://ccfws.cns.iu.edu/2019/>
-
