@@ -865,6 +865,92 @@
   src: url(https://fonts.gstatic.com/s/lato/v17/S6uyw4BMUTPHjx4wXiWtFCc.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+
+#myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Caption of Modal Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation */
+.modal-content, #caption {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
   </style>
 </head>
 
@@ -912,6 +998,14 @@
         <section class="location" id="locations">
           <h2>Location</h2>
             <p>Virtual, zoom links will be provided.</p>
+        </section>
+
+        <section class="location" id="locations">
+          <h2>Photos</h2>
+            <a href="./images/global/group_pic_day1_high-quality.jpg"><img src="./images/global/group_pic_day1_high-quality.jpg" width="600"/></a>
+            <a href="./images/global/group_pic_day2.gif"><img src="./images/global/group_pic_day2.gif" width="737"/></a>
+            
+
         </section>
 
         <section class="" id="organizers">
@@ -1006,7 +1100,7 @@
           <p>All times are in Eastern Daylight Time (UTC-4)
           </p>
           <h3>February 2, 2021</h3>
-          <a href="./images/global/group_pic_day1_high-quality.jpg"><img src="./images/global/group_pic_day1_high-quality.jpg" width="600"/></a>
+          
           <ul class="style-list-none agenda-list">
             <li class="row"><span class="col-1">11:30am</span><span class="col-2">Welcome by organizers and Introduction of MC Andreas Bueckle
               </span><span class="col-3"></span></li>
@@ -1028,7 +1122,6 @@
               </span><span class="col-3"></span></li>
           </ul>
           <h3>February 9, 2021</h3>
-          <a href="./images/global/group_pic_day2.gif"><img src="./images/global/group_pic_day2_still.jpg" width="600"/></a>
           <ul class="style-list-none agenda-list">
             <li class="row"><span class="col-1">11:30am</span><span class="col-2">Welcome by Organizers and MC Andreas Bueckle 
               </span><span class="col-3"></span></li>
@@ -1479,6 +1572,29 @@
         });
       });
     </script>
+
+<script>
+  // Get the modal
+  var modal = document.getElementById("myModal");
+  
+  // Get the image and insert it inside the modal - use its "alt" text as a caption
+  var img = document.getElementById("myImg");
+  var modalImg = document.getElementById("img01");
+  var captionText = document.getElementById("caption");
+  img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+  }
+  
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+  
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() { 
+    modal.style.display = "none";
+  }
+  </script>
 
 
   </div>
